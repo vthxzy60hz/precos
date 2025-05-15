@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tabela de Preços | Vítor Hugo Reis</title>
   <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #111;
-      color: #f8fafc;
+      background-color: #0a0a0a;
+      color: #f1f1f1;
       background: url('https://thumbs.dreamstime.com/b/fundo-de-parede-do-teclado-vermelho-hd-171994124.jpg') no-repeat center center fixed;
       background-size: cover;
       position: relative;
@@ -28,28 +33,36 @@
       padding: 2rem 1rem 1rem;
       color: #ff0000;
       text-shadow: 0 0 10px #ff0000;
+      font-size: 2.2rem;
     }
 
-    table {
+    .table-container {
       width: 90%;
+      max-width: 1000px;
       margin: 2rem auto;
-      border-collapse: collapse;
-      background-color: rgba(0, 0, 0, 0.85);
-      box-shadow: 0 0 20px #000;
       border-radius: 10px;
       overflow: hidden;
     }
 
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: rgba(0, 0, 0, 0.9);
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+
     th, td {
       padding: 1rem;
-      text-align: center;
-      border: 1px solid #333;
+      text-align: left;
+      border-bottom: 1px solid #333;
     }
 
     th {
       background-color: #ff0000;
-      color: white;
-      text-shadow: 0 0 5px #fff;
+      color: #fff;
+      text-shadow: 0 0 5px #000;
+      font-size: 1.1rem;
     }
 
     tr:nth-child(even) {
@@ -57,90 +70,135 @@
     }
 
     tr:hover {
-      background-color: #2c2c2c;
+      background-color: #2a2a2a;
+    }
+
+    td:last-child {
+      color: #16f49b;
+      font-weight: bold;
     }
 
     footer {
       text-align: center;
       padding: 2rem;
-      color: #64748b;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    /* Responsivo para mobile */
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead tr {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: 1.5rem;
+        background-color: rgba(0, 0, 0, 0.75);
+        border-radius: 8px;
+        padding: 1rem;
+      }
+
+      td {
+        text-align: left;
+        padding: 0.5rem 1rem;
+        position: relative;
+      }
+
+      td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.3rem;
+        color: #ff0000;
+      }
+
+      td:last-child {
+        font-size: 1.2rem;
+        color: #16f49b;
+      }
     }
   </style>
 </head>
 <body>
   <h1>Tabela de Preços</h1>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Serviço</th>
-        <th>Descrição</th>
-        <th>Preço</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Ajustes de HTML</td>
-        <td>Correções rápidas em códigos HTML</td>
-        <td>R$ 20,00</td>
-      </tr>
-      <tr>
-        <td>Criação de Sites</td>
-        <td>Sites completos para empresas ou pessoais</td>
-        <td>R$ 150,00+</td>
-      </tr>
-      <tr>
-        <td>Remodelagem de Sites</td>
-        <td>Atualização visual e estrutural de sites antigos</td>
-        <td>R$ 80,00+</td>
-      </tr>
-      <tr>
-        <td>Criação de Aplicativos</td>
-        <td>Aplicativos personalizados para Android/iOS</td>
-        <td>R$ 250,00+</td>
-      </tr>
-      <tr>
-        <td>Desenvolvimento Python Pro</td>
-        <td>Automação, bots, scripts e sistemas</td>
-        <td>R$ 100,00+</td>
-      </tr>
-      <tr>
-        <td>JavaCraft Solutions</td>
-        <td>Projetos em Java para desktop ou backend</td>
-        <td>R$ 120,00+</td>
-      </tr>
-      <tr>
-        <td>Correção de Bugs</td>
-        <td>Conserto de erros no site ou sistema</td>
-        <td>R$ 30,00+</td>
-      </tr>
-      <tr>
-        <td>Consultoria Técnica</td>
-        <td>Apoio para começar um projeto do zero</td>
-        <td>R$ 50,00/h</td>
-      </tr>
-      <tr>
-        <td>Otimização de Sites (SEO)</td>
-        <td>Melhoria no posicionamento no Google</td>
-        <td>R$ 90,00+</td>
-      </tr>
-      <tr>
-        <td>Desenvolvimento de Sistemas</td>
-        <td>Sistemas completos sob medida</td>
-        <td>R$ 300,00+</td>
-      </tr>
-      <tr>
-        <td>Loja Virtual</td>
-        <td>E-commerce com carrinho e painel de controle</td>
-        <td>R$ 400,00+</td>
-      </tr>
-      <tr>
-        <td>Site para Instituições</td>
-        <td>Sites para igrejas, ONGs, escolas, etc.</td>
-        <td>R$ 150,00+</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Serviço</th>
+          <th>Descrição</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Serviço">Ajustes de HTML</td>
+          <td data-label="Descrição">Correções rápidas em códigos HTML</td>
+          <td data-label="Preço">R$ 20,00</td>
+        </tr>
+        <tr>
+          <td data-label="Serviço">Criação de Sites</td>
+          <td data-label="Descrição">Sites completos para empresas ou pessoais</td>
+          <td data-label="Preço">R$ 150,00+</td>
+        </tr>
+        <tr>
+          <td data-label="Serviço">Remodelagem de Sites</td>
+          <td data-label="Descrição">Atualização visual e estrutural de sites antigos</td>
+          <td data-label="Preço">R$ 80,00+</td>
+        </tr>
+        <tr>
+          <td data-label="Serviço">Criação de Aplicativos</td>
+          <td data-label="Descrição">Aplicativos personalizados para Android/iOS</td>
+          <td data-label="Preço">R$ 250,00+</td>
+        </tr>
+        <tr>
+          <td data-label="Serviço">Desenvolvimento Python Pro</td>
+          <td data-label="Descrição">Automação, bots, scripts e sistemas</td>
+          <td data-label="Preço">R$ 100,00+</td>
+        </tr>
+        <tr>
+          <td data-label="Serviço">JavaCraft Solutions</td>
+          <td data-label="Descrição">Projetos em Java para desktop ou backend</td>
+          <td data-label="Preço">R$ 120,00+</td>
+        </tr>
+        <tr>
+          <td data-label="Serviço">Correção de Bugs</td>
+          <td data-label="Descrição">Conserto de erros no site ou sistema</td>
+          <td data-label="Preço">R$ 30,00+</td>
+        </tr>
+        <tr>
+          <td data-label="Serviço">Consultoria Técnica</td>
+          <td data-label="Descrição">Apoio para começar um projeto do zero</td>
+          <td data-label="Preço">R$ 50,00/h</td>
+        </tr>
+        <tr>
+          <td data-label="Serviço">Otimização de Sites (SEO)</td>
+          <td data-label="Descrição">Melhoria no posicionamento no Google</td>
+          <td data-label="Preço">R$ 90,00+</td>
+        </tr>
+        <tr>
+          <td data-label="Serviço">Desenvolvimento de Sistemas</td>
+          <td data-label="Descrição">Sistemas completos sob medida</td>
+          <td data-label="Preço">R$ 300,00+</td>
+        </tr>
+        <tr>
+          <td data-label="Serviço">Loja Virtual</td>
+          <td data-label="Descrição">E-commerce com carrinho e painel de controle</td>
+          <td data-label="Preço">R$ 400,00+</td>
+        </tr>
+        <tr>
+          <td data-label="Serviço">Site para Instituições</td>
+          <td data-label="Descrição">Sites para igrejas, ONGs, escolas, etc.</td>
+          <td data-label="Preço">R$ 150,00+</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <footer>
     &copy; 2025 Vítor Hugo Reis. Todos os direitos reservados.
